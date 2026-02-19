@@ -80,3 +80,26 @@ git add -p <file> # then git will ask us what we want to include
 ## Branching strategies
 
 - Consult/create a written best practice of how to structure it with your team
+
+### Integrating changes & Structuring releases
+
+1. Mainline development ("always be integrating")
+   - few branches
+   - relatively small commits
+2. State, release, and feature branches
+   - branches enhance structures & workflows
+   - different types of branchs to fulfill different types of jobs
+
+### Long-running & short-lived branches
+
+#### Long-running
+
+- Exists through the complete lifetime of the project
+  - A longer "feature" / "fix" branch
+  - Often, they mirro "stages" in your dev life cycle
+- Integration branches
+
+#### Short-lived
+
+- Fow new features, bug fixes, refactoring, experiements
+- Will be deleted after integration
