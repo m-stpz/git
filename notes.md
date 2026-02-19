@@ -103,3 +103,20 @@ git add -p <file> # then git will ask us what we want to include
 
 - Fow new features, bug fixes, refactoring, experiements
 - Will be deleted after integration
+
+## Merge conflicts
+
+- They happend when integrating commits from different sources
+- The same line of code was changed in two commits in two different branches
+
+### Reading a conflict
+
+```js
+<<<<<< HEAD // start of your local changes
+const color = "red" // this is WHERE YOU'RE NOW
+====== // the fence separating the 2 versions
+const color = "blue" // this is WHAT YOU'RE PULLING IN
+>>>>> main // >>>> [branch-name]: the end of the incoming changes
+```
+
+### How to solve it?
