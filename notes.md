@@ -12,6 +12,7 @@
 # add them to a box befp
 git add <file-selector>
 git add .
+git add -p <file> # we can then select which portion we add to that commit
 
 # taking a snapshot
 git commit -m "<message>"
@@ -30,4 +31,52 @@ git pull # fetch + merge
 git restore --staged <file-name> # unstage a file
 git restore <file-name> # discard local changes
 git commit --amend -m "Corrected message" fix last commit message
+
+# check your branches
+git branch
+
+# checking changes
+git diff
+
+# checking history
+git log
 ```
+
+## The perfect commit
+
+### 1. Add the right changes
+
+- Selectively decide what should go into that commit
+- Keep the commits and files selective
+- Golden rule: **only combine changes from the same topic in a single commit**
+- Create a very granular commit
+
+#### Selecting a specific portion
+
+- We can take a specific "chunk" of our changes and commit that, instead of the whole file
+- We can either do it:
+
+1.  through cli
+
+```bash
+git add -p <file> # then git will ask us what we want to include
+```
+
+2. through vscode's gui
+
+2.1 open the working tree of the changes through vscode source control
+2.2 select the portion you want to add
+2.3 right click + "Stage selected ranges" (shortcut: cmd + k | cmd + option + s)
+
+### 2. The message
+
+1. Subject: concise summary of what happened
+   - If you have difficulty explaining what happened, maybe there were too many things on that commit
+2. Body: more detailed explanation
+   - What's different?
+   - Why did it change?
+   - Anything worth mentioning?
+
+## Branching strategies
+
+- Consult/create a written best practice of how to structure it with your team
