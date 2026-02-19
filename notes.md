@@ -120,3 +120,10 @@ const color = "blue" // this is WHAT YOU'RE PULLING IN
 ```
 
 ### How to solve it?
+
+1. Decide what you want to do and delete the markers
+2. Through VSCode, we can:
+   - Accept current changes
+   - Accept incoming changes
+   - Accept both changes
+   - Compare changes
