@@ -40,6 +40,10 @@ git diff
 
 # checking history
 git log
+
+# stopping a merge
+git merge --abort
+git rebase --abort
 ```
 
 ## The perfect commit
@@ -109,6 +113,15 @@ git add -p <file> # then git will ask us what we want to include
 - They happend when integrating commits from different sources
 - The same line of code was changed in two commits in two different branches
 
+### Avoiding conflict hell
+
+- We can't avoid them forever, but we can make them rarer and smaller
+
+1. Pull often
+2. Small commits
+3. Communication
+   - Going to refactor a major file? Tell your team!
+
 ### Reading a conflict
 
 ```js
@@ -127,3 +140,81 @@ const color = "blue" // this is WHAT YOU'RE PULLING IN
    - Accept incoming changes
    - Accept both changes
    - Compare changes
+
+## Merge vs. Rebase vs. Squash
+
+- Merge: tells the story of how the work happened (including the messy parts)
+- Rebase: tells the store of what the final project looks like
+
+### Git merge: The preserver
+
+- Merge commit: automatically created by git
+  - When merged, git created a new "Merge commit".
+  - Acts as a bridge, tying the 2 branches
+  - It creates a diamond shape in your history
+  - It's like a knot
+
+```
+             merge commit
+c1 ------ c3 ----- c5 --- [branch-a] ---
+    \ c2 --- c4 -- / ---- [branch-b] ---
+```
+
+Pros
+
+- Non-destructive
+- We can see when/where a branch was joined
+
+Cons
+
+- With many devs, the history can become a "spaghetti" of criss-crossing lines and "merge branch..." commits
+
+```bash
+# merge is done from "destination"
+git checkout main # go to main
+git merge feature-branch  # merge the feature-branch to <current-branch>
+```
+
+- I go to the destination [main] and I move into it the feature-branch
+
+```bash
+# I'm at main
+git merge feature-branch  # feature-branch [changes] --- merged to ---> main [destination]
+```
+
+### Git rebase: The perfectionist
+
+- Rebase takes the commits and moves them to the tip of the target branch
+  - A perfeclty straight line
+  - Looks like you developed the feature on the very latest version of the code
+
+Pros
+
+- Clean history
+- Easy to follow
+
+Cons
+
+- Technically "faking" history
+- If you rebase code that others have already downloaded, you'll cause massive sync errors for them
+
+```bash
+git checkout feature-branch
+git rebase main
+```
+
+- It's done from the feature-branch
+
+```bash
+git checkout feature-branch # I go to the branch with the changes
+git rebase main # I "lift" my work and put on top of the latest main
+```
+
+### Git Squash:
+
+## To learn
+
+- [] rebase | what are other options?
+- [] stash
+- [] cherry pick
+- [] git lens
