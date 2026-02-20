@@ -2,3 +2,4 @@ this will be a conflict
 conflict for sure!
 
 some change
+1
