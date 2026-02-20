@@ -210,11 +210,35 @@ git checkout feature-branch # I go to the branch with the changes
 git rebase main # I "lift" my work and put on top of the latest main
 ```
 
-### Git Squash:
+| Goal                     | Where you should be (checkout) | Command                    |
+| ------------------------ | ------------------------------ | -------------------------- |
+| Merge feature into main  | `main`                         | `git merge feature-branch` |
+| Rebase feature onto main | `feature-branch`               | `git rebase main`          |
 
-## To learn
+- **Do not use Rebase on commits that've already pushed/shared on a remote repo!**
+- Instead, use it for cleaning up your local commit history before merging it into a shared team branch
 
-- [] rebase | what are other options?
-- [] stash
-- [] cherry pick
-- [] git lens
+### Git Squash: The editor
+
+- Allows us to take a long string of small, messy commits and condense them into a single, clean, meaningful commit
+
+#### How to squash
+
+Two ways:
+
+1.  Perfectionist: Interactive rebase
+2.  Lazy/Efficient: Squash merge
+
+- Done when we want to bring our feature into main
+- Instead of a regular merge, you tell git to "melt" all your feature branch commits into one single block
+
+```bash
+git checkout main
+git merge --squash feature-branch
+# puts all the changes in your "staging area", without commiting them
+git commit -m "message for the commit"
+```
+
+## Git stash
+
+## Git cherry pick
