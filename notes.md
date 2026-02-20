@@ -227,6 +227,15 @@ git rebase main # I "lift" my work and put on top of the latest main
 Two ways:
 
 1.  Perfectionist: Interactive rebase
+
+- Clean up your work before anyone sees it
+
+```bash
+git rebase -i HEAD~3 # Look at my last 3 commits
+```
+
+- It'll open an editor
+
 2.  Lazy/Efficient: Squash merge
 
 - Done when we want to bring our feature into main
@@ -238,6 +247,9 @@ git merge --squash feature-branch
 # puts all the changes in your "staging area", without commiting them
 git commit -m "message for the commit"
 ```
+
+- This way, `feature-branch` keeps its messy history, but the `main` branch only sees one clean commit
+  - What about PRs, when we want to merge it our feature-branch into main?
 
 ## Git stash
 
