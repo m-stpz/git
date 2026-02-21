@@ -218,3 +218,15 @@ git rebase main # I "lift" my work and put on top of the latest main
 - [] stash
 - [] cherry pick
 - [] git lens
+
+# rebase notes
+
+# p, pick <commit> = use commit
+
+# r, reword <commit> = use commit, but edit the commit message
+
+# e, edit <commit> = use commit, but stop for amending
+
+# s, squash <commit> = use commit, but meld into previous commit
+
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
