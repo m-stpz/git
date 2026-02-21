@@ -6,46 +6,6 @@
 - Staging: a 'drafting' area
 - Repository: the permanent history
 
-## Commands
-
-```bash
-# add them to a box befp
-git add <file-selector>
-git add .
-git add -p <file> # we can then select which portion we add to that commit
-
-# taking a snapshot
-git commit -m "<message>"
-
-# upload changes
-git push origin <branch>
-
-# create a new branch
-git checkout -b <new-branch>
-
-# staying up to date
-git fetch # downloads the latest info fomr server, but doesn't change your local file
-git pull # fetch + merge
-
-# undoing changes
-git restore --staged <file-name> # unstage a file
-git restore <file-name> # discard local changes
-git commit --amend -m "Corrected message" fix last commit message
-
-# check your branches
-git branch
-
-# checking changes
-git diff
-
-# checking history
-git log
-
-# stopping a merge
-git merge --abort
-git rebase --abort
-```
-
 ## The perfect commit
 
 ### 1. Add the right changes
@@ -228,42 +188,8 @@ git rebase main # I "lift" my work and put on top of the latest main
 
 Two ways:
 
-##### 1. Perfectionist: Interactive rebase
-
-- Clean up your work before anyone sees it
-
-```bash
-git rebase -i HEAD~3 # Look at my last 3 commits
-```
-
-And editor will pop up - You can't squase "up", only "down", into the commit above it
-
-```txt
-pick <commit-num-1> <commit-message> # this one must be at the "base", we can't put 's' here
-pick <commit-num-2> <commit-message> # we can put s
-pick <commit-num-3> <commit-message> # we can put s
-
-# Rebase commands:
-# p, pick: use commit
-# s, squash: use commit, but melt into previous one => combines code + asks you to combine the messages
-# f, fixup: combines code + discards the messages of the squashed commits
-```
-
-###### Interactive rebase commands
-
-```
-# p, pick <commit> = use commit
-# r, reword <commit> = use commit, but edit the commit message
-# e, edit <commit> = use commit, but stop for amending
-# s, squash <commit> = use commit, but meld into previous commit
-# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
-```
-
-Once this is done (CTRL + X) and save, another editor will appear where you can select the message
-
-- It'll open an editor
-
-##### 2. Lazy/Efficient: Squash merge
+1. Interactive rebase: see interactive-rebase.md
+2. Lazy/Efficient: Squash merge
 
 - Done when we want to bring our feature into main
 - Instead of a regular merge, you tell git to "melt" all your feature branch commits into one single block
