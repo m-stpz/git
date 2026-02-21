@@ -271,3 +271,20 @@ git commit -m "message for the commit"
 ## Git stash
 
 ## Git cherry pick
+
+- [] rebase | what are other options?
+- [] stash
+- [] cherry pick
+- [] git lens
+
+# rebase notes
+
+# p, pick <commit> = use commit
+
+# r, reword <commit> = use commit, but edit the commit message
+
+# e, edit <commit> = use commit, but stop for amending
+
+# s, squash <commit> = use commit, but meld into previous commit
+
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
