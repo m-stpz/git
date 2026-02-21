@@ -7,4 +7,5 @@ conflict for sure!
 3
 
 test 
+another_information
 another_thing
