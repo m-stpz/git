@@ -26,7 +26,7 @@ git config --global diff.tool vscode # then, you'd type 'git difftool'
 git config --global difftool.prompt false # now, it will be automatic
 git config --global alias.dt difftool # create an alias for it
 
-# merge tool
+# merge tool - really useful!
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait --merge $REMOTE $LOCAL $BASE $MERGED'
 git config --global mergetool.prompt false
