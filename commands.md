@@ -4,6 +4,8 @@
 
 - How to check the global config?
 - What does '~' mean in git?
+- What about git reset?
+- What about git stash?
 
 ## Project initialization
 

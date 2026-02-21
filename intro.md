@@ -71,3 +71,16 @@ git add -p <file> # then git will ask us what we want to include
 ## Understanding `HEAD` and `~` (Navigation)
 
 - `HEAD` is a pointer to where you're right now. Current "Current chapter" indicator in a book
+
+### Tilde: `~` (backwards in time)
+
+- `~` is used to look back at previous commits **relative** to your current position
+  - `HEAD`: last commit you made
+  - `HEAD~1`: the commit before the last
+  - `HEAD~3`: 3 commits ago
+
+If you want to undo the last 2 commits, but keep the code changes in folder:
+
+```bash
+git reset --soft HEAD~2
+```
