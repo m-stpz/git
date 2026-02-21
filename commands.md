@@ -15,6 +15,14 @@ git clone <url> # copes existing repo from server to machine
 git config --global user.name "Your name"
 ```
 
+## Checking global config
+
+```bash
+git config --global --list # view all
+git config --global user.name # view specific key
+git config --global --edit # edit it
+```
+
 ## Staging & Commiting
 
 ```bash
@@ -35,6 +43,7 @@ git branch
 git checkout <name>
 git checkout -b <name>
 git switch - # handy shortcut to jump back to previous branch you were on
+git branch -d <name>
 ```
 
 ```bash
