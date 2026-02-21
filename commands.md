@@ -49,8 +49,26 @@ git remote -v # shows where you local code is connected to
 git fetch # checks the server for updates, but doesn't touch the code. Safe to run anytime
 git fetch vs. git fetch origin?
 git pull # fetches + merge
+git pull --rebase ## to learn
 git push origin <branch> # send local snapshots to server
 ```
+
+### `git pull --rebase`
+
+- Cleaner way to stay up to date
+  - by default `git pull` does a merge
+
+How does `git pull --rebase` work?
+
+1. Lifts your local commits that aren't on the server yet
+2. Downloads the new commits from the server (the base)
+3. Replays your local commits, one by one, on top of the new base
+
+| strategy          | command            | best for                                             |
+| ----------------- | ------------------ | ---------------------------------------------------- |
+| default (merge)   | git pull           | preserving chronological truth                       |
+| rebase            | git pull --rebase  | keeping a clean, linear project history              |
+| fast-forward only | git pull --ff-only | Ensure never to accidentally create a merge conflict |
 
 ## Inspection and comparison
 
