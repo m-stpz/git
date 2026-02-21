@@ -18,14 +18,6 @@ git clone <url> # copes existing repo from server to machine
 git config --global user.name "Your name"
 ```
 
-## Checking global config
-
-```bash
-git config --global --list # view all
-git config --global user.name # view specific key
-git config --global --edit # edit it
-```
-
 ## Staging & Commiting
 
 ```bash
@@ -43,6 +35,7 @@ git commit --amend -m # fixes last message
 
 ```bash
 git branch # show all your branches
+git branch -a # inclues remote branches
 git checkout <name> # checkout to existing branch
 git checkout -b <name> # create a new branch
 git switch - # handy shortcut to jump back to previous branch you were on
@@ -88,12 +81,4 @@ git reset --hard HEAD~n # undoes `n` commits + DOESN'T keep the code! (danger)
 # this merge/rebase is a mess!
 git merge --abort
 git rebase --abort
-```
-
-## Creating aliases
-
-If you find yourself typing long commands like `git log --oneline --graph --all` often, create a shortcut:
-
-```bash
-git config --global alias.<alias-name> "log --all --decorate --oneline --graph"
 ```

@@ -98,6 +98,9 @@ git checkout -b <local-branch-name> origin/<remote-branch-name>
 
 Simply
 
+- When git doesn't find local branch by that name, it automatically reaches to your remotes
+  - If it finds a match, it creates a local branch for you and "tracks" the remote one automatically
+
 ```bash
 git fetch origin # update remote list
 git checkout <branch-name> # switch to their branch
@@ -108,6 +111,10 @@ git checkout <branch-name> # switch to their branch
 # other options
 git switch <branch-name> # modern "switch"
 git checkout -b <local-name> origin/<branch-name> # if you want to change the name | old way
+
+# if you want to be 100% explicit
+git fetch
+git checkout -t origin/<branch-name> # -t | --track
 ```
 
 ### `git fetch` vs. `git fetch origin`
