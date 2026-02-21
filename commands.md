@@ -1,5 +1,42 @@
 # Commands
 
+## Questions
+
+- How to check the global config?
+- What does '~' mean in git?
+
+## Project initialization
+
+- Setting up environment
+
+```bash
+git init # create .git folder
+git clone <url> # copes existing repo from server to machine
+git config --global user.name "Your name"
+```
+
+## Staging & Commiting
+
+```bash
+git status # shows which files are modified
+
+# Adding file(s)
+git add <file>
+git add .
+git add -p # iterates through changes and allows you to select which one you want to use
+git commit -m "msg"
+git commit --amend -m # fixes last message
+```
+
+## Branching & context switching
+
+```bash
+git branch
+git checkout <name>
+git checkout -b <name>
+git switch - # handy shortcut to jump back to previous branch you were on
+```
+
 ```bash
 # add them to a box befp
 git add <file-selector>
