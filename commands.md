@@ -6,6 +6,7 @@
 - What does '~' mean in git?
 - What about git reset?
 - What about git stash?
+- What about
 
 ## Project initialization
 
@@ -41,47 +42,50 @@ git commit --amend -m # fixes last message
 ## Branching & context switching
 
 ```bash
-git branch
-git checkout <name>
-git checkout -b <name>
+git branch # show all your branches
+git checkout <name> # checkout to existing branch
+git checkout -b <name> # create a new branch
 git switch - # handy shortcut to jump back to previous branch you were on
 git branch -d <name>
 ```
 
+## Sync with the "truth" (remote repos)
+
 ```bash
-# add them to a box befp
-git add <file-selector>
-git add .
-git add -p <file> # we can then select which portion we add to that commit
+git remote -v # shows where you local code is connected to
+git fetch # checks the server for updates, but doesn't touch the code. Safe to run anytime
+git fetch vs. git fetch origin?
+git pull # fetches + merge
+git push origin <branch> # send local snapshots to server
+```
 
-# taking a snapshot
-git commit -m "<message>"
+## Inspection and comparison
 
-# upload changes
-git push origin <branch>
+```bash
+git log --oneline --graph --all # shows visual tree of history
+git diff # shows what changed, but haven't been staged yet
+git diff --staged # what you staged, but haven't commited
+git blame <file> # shows line-by-line who last edited a file and why
+```
 
-# create a new branch
-git checkout -b <new-branch>
+## Temporary storage & snipping (power tools)
 
-# staying up to date
-git fetch # downloads the latest info fomr server, but doesn't change your local file
-git pull # fetch + merge
+```bash
+git stash # hits 'pause'. Hides uncommited work so you can switch branches
+git stash pop # hits 'play'. Brings back hidden work
+git cherry-pick <hash> # snipes a single commit from another branch and applies to your current one
+git rebase -i HEAD~n # squash tool. Rewrites the last `n` commits to clean them up
+```
 
-# undoing changes
-git restore --staged <file-name> # unstage a file
-git restore <file-name> # discard local changes
-git commit --amend -m "Corrected message" fix last commit message
+## Emergency kit (undo commands)
 
-# check your branches
-git branch
+```bash
+git restore --staged <file> # unstages a file
+git restore <file> # restore the file
+git reset --soft HEAD~n # undoes `n` commits + keeps the code
+git reset --hard HEAD~n # undoes `n` commits + DOESN'T keep the code! (danger)
 
-# checking changes
-git diff
-
-# checking history
-git log
-
-# stopping a merge
+# this merge/rebase is a mess!
 git merge --abort
 git rebase --abort
 ```
