@@ -84,3 +84,54 @@ If you want to undo the last 2 commits, but keep the code changes in folder:
 ```bash
 git reset --soft HEAD~2
 ```
+
+## Pulling a colleague's branch
+
+It's not necessary to
+
+- This was the old way
+
+```bash
+git fetch origin <remote-branch-name>
+git checkout -b <local-branch-name> origin/<remote-branch-name>
+```
+
+Simply
+
+```bash
+git fetch origin # update remote list
+git checkout <branch-name> # switch to their branch
+# it will grab the remote branch
+# branch 'b-1' set up to track 'origin/b-1'.
+# Switched to a new branch 'b-1'
+
+# other options
+git switch <branch-name> # modern "switch"
+git checkout -b <local-name> origin/<branch-name> # if you want to change the name | old way
+```
+
+### `git fetch` vs. `git fetch origin`
+
+- `git fetch origin`: tell git exactly which remote to talk to
+  - use it if you have multiple remotes
+
+```bash
+git remote # checks all remotes you're connected to
+git remove -v # verbose
+```
+
+- `git fetch`: git decides which remote to fetch from
+  - if your current branch tracks a specific rremove, git automatically fetches from that remote
+
+- Both commands are "safe" commands. Meaning, it downloads the data, but doesn't change your local
+  - you can also run `git fetch --all`: your local machine is now in sync with every single remote server
+
+- How to check if remote has changed?
+
+```bash
+git fetch
+git status # this will show you
+
+# your branch is up to date with origin/main
+# your branch is behind 'origin/main' by <n> commits and can be fast-forwarded
+```

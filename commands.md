@@ -6,7 +6,7 @@
 - What does '~' mean in git?
 - What about git reset?
 - What about git stash?
-- What about
+- What about git bisect?
 
 ## Project initialization
 
@@ -88,4 +88,12 @@ git reset --hard HEAD~n # undoes `n` commits + DOESN'T keep the code! (danger)
 # this merge/rebase is a mess!
 git merge --abort
 git rebase --abort
+```
+
+## Creating aliases
+
+If you find yourself typing long commands like `git log --oneline --graph --all` often, create a shortcut:
+
+```bash
+git config --global alias.<alias-name> "log --all --decorate --oneline --graph"
 ```
