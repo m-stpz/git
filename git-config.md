@@ -14,13 +14,23 @@ git config --global --edit # edit it
 # git config --global NAME VALUE
 git config --global init.defaultBranch main # sets the default init branch as main
 
-# makes git stop complaining about 'the current branch has no upstream branch'
-# if the branch doesn't exist on remote, create it and link them automatically
-git config --global push.autoRemoteSetup true
+# no branch on remote? create it and link it to local
+git config --global push.autoSetupRemote true # fixes the 'no upstream' error
 
 git config --global fetch.prune true # automatically delete remote tracking branches that have been deleted
 git config --global diff.algorithm histogram
 git config --global merge.conflictstyle zdiff3
+
+# make the diff tool vscode
+git config --global diff.tool vscode # then, you'd type 'git difftool'
+git config --global difftool.prompt false # now, it will be automatic
+git config --global alias.dt difftool # create an alias for it
+```
+
+## Removing a property
+
+```bash
+git config --global --unset NAME VALUE
 ```
 
 ## Global aliases
@@ -43,3 +53,4 @@ git config --global alias.<alias-name> "log --all --decorate --oneline --graph"
 | `br`  | `branch`     |
 | `cm`  | `commit -m`  |
 | `ps`  | `push`       |
+| `aa`  | `add .`      |
